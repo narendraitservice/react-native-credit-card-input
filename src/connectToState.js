@@ -121,6 +121,5 @@ export default function connectToState(CreditCardInput) {
       );
     }
   }
-
   return StateConnection;
 }
