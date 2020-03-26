@@ -17,14 +17,14 @@ import { InjectedProps } from "./connectToState";
 
 const width = Dimensions.get('window').width
 
-const INFINITE_WIDTH = Dimensions.get('window').width - 100;
+const INFINITE_WIDTH = Dimensions.get('window').width;
 //const INFINITE_WIDTH = 1000;
 
 const s = StyleSheet.create({
   container: {
     paddingLeft: 16,
     paddingRight: 16,
-    paddingTop : 20,
+    paddingTop : 10,
     //flexDirection: "row",
     //alignItems: "center",
     //overflow: "hidden",
@@ -60,7 +60,7 @@ const s = StyleSheet.create({
     width: 80,
   },
   cvcInput: {
-    width: 80,
+    width: width/2.6,
   },
   last4Input: {
     width: 60,
@@ -78,16 +78,21 @@ const s = StyleSheet.create({
   },
   monthcontainer:{
     flexDirection:'row',
-    borderBottomWidth:0.6,
-    borderBottomColor:'#d7d7d7'
+    marginTop:10
+    // borderBottomWidth:0.6,
+    // borderBottomColor:'#d7d7d7'
   },
   expiryview:{
     width:width/2,
-    borderRightWidth:0.6,
-    borderRightColor:'#d7d7d7'
+    // borderRightWidth:0.6,
+    // borderRightColor:'#d7d7d7'
+    borderBottomWidth:0.6,
+    borderBottomColor:'#d7d7d7'
   },
   cvcview:{
-     marginLeft: 10
+     marginLeft: 10,
+    borderBottomWidth:0.6,
+    borderBottomColor:'#d7d7d7'
   },
   inputContainerStyle: {
     borderBottomWidth: 1,
@@ -95,7 +100,8 @@ const s = StyleSheet.create({
   },
   nameinput:{
     borderBottomWidth:0.6,
-    borderBottomColor:'#d7d7d7'
+    borderBottomColor:'#d7d7d7',
+    marginTop:10
   }
 });
 
@@ -193,9 +199,9 @@ export default class LiteCreditCardInput extends Component {
                            keyboardType="numeric"
                            containerStyle={s.numberInput} />
                 </View>
-                <View>
-                  <Image style={s.icon} source={Icons[this._iconToShow()]} />
-                </View>
+                {/*<View>*/}
+                {/*  <Image style={s.icon} source={Icons[this._iconToShow()]} />*/}
+                {/*</View>*/}
         </View>
 
         <View style={s.monthcontainer}>
@@ -209,6 +215,7 @@ export default class LiteCreditCardInput extends Component {
 
                   {...this._inputProps("cvc")}
                      keyboardType="numeric"
+                  placeholder={'Security Code'}
                      containerStyle={s.cvcInput} />
           </View>
         </View>
